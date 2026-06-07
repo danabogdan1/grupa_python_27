@@ -1,3 +1,6 @@
+from asyncio.windows_events import ERROR_CONNECTION_REFUSED
+
+
 # functii
 # def -> keyword, face parte din sintaxa de definire a unei functii.
 
@@ -6,11 +9,9 @@ def greet():
     print("hello")
     print("this is flume")
 
-
 # apelare de functie
 
 greet()
-
 
 # add
 # a, b -> parametri
@@ -119,24 +120,58 @@ print(result2)
 
 # tema:
 
+print("Tema procesare stringuri")
+
+
 # "ERR-Value Error-ER:10"
 # "INF-Program launch Info-CD:5"
 # "WRN-Low memory-WR:11"
 
 var2 = ["ERR-Value Error-ER:10", "INF-Program launch Info-CD:5", "WRN-Low memory-WR:11"]
 
-for s in var2:
-    print(s.split("-")[0])
-    print(f"Mesaj: {s.split("-")[1]}")
-    # print("Mesaj: ", s.split("-")[1])
-    # s -> string :::: .split("-") -> list :::: [2] -> elem din lista dupa index :::: elem este string, deci s.split("-")[2] -> string :::: .split(":") -> list :::: acea_lista[1] -> al doilea element, care este numarul de cod ce ne intereseaza.
-    print(s.split("-")[2].split(":")[1])
+# refactorizare:
+# mutati codul intr-o functie si in loc de print, folositi return, sa returnam un string care este mesajul formatat.
+
+def format_logs(param1):
+    chunks = []
+    for s in param1:
+        if s.split("-")[0] == "ERR":
+            chunks.append("[ERROR]")
+        elif s.split("-")[0] == "WRN":
+            chunks.append("[WARNING]")
+        elif s.split("-")[0] == "INF":
+            chunks.append("[INFO]")
+        else:
+            chunks.append(s.split("-")[0])
+
+        chunks.append(f"Mesaj: {s.split("-")[1]}")
+        # print("Mesaj: ", s.split("-")[1])
+        # s -> string :::: .split("-") -> list :::: [2] -> elem din lista dupa index :::: elem este string, deci s.split("-")[2] -> string :::: .split(":") -> list :::: acea_lista[1] -> al doilea element, care este numarul de cod ce ne intereseaza.
+        chunks.append(f"Cod: {s.split("-")[2].split(":")[1]}\n")
+
+    str_result = "\n".join(chunks)
+    return str_result
+
+result = format_logs(var2)
+print(result)
 
 # [ERROR] -> folositi if
 # Mesaj: Value Error
 # Cod: 10
 
-print("asdf", "shadow", "cat", sep="-----", end="END OF LINE\n")
+# print("asdf", "shadow", "cat", sep="-----", end="END OF LINE\n")
+
+
+# [ERROR]
+# Mesaj: Value Error
+# Cod: 10
+# [INFO]
+# Mesaj: Program Launch Info
+# Cod: 05
+# [Warning]
+# Mesaj: Low memory
+# Cod: 11
+
 
 
 
