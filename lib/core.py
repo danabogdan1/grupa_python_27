@@ -14,7 +14,4 @@ def odd_numbers(list1):
     return res
 
 def is_even(nr):
-    if nr % 2 == 0:
-        return True
-    else:
-        return False
+    return nr % 2 == 0
