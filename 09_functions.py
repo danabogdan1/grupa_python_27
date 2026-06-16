@@ -25,10 +25,12 @@ print(square(10))
 
 # filtrati toate numerele multiplu de 7
 
-rezultat = list(filter(lambda x: x % 2 == 0, random_numbers))
+rezultat = list(filter(lambda x: x % 7 == 0, random_numbers))
 print(rezultat)
 
 rezultat2 = list(filter(is_even, random_numbers))
+print(rezultat2)
+
 
 
 #map(), reduce(), zip()
@@ -71,8 +73,8 @@ def generate_random_chars(count = 10, min_char = 97, max_char = 122):
 
 random_letters = generate_random_chars()
 print(random_letters)
-random_japanase_chars = generate_random_chars(20, 12400, 12500)
-print(random_japanase_chars)
+random_japanese_chars = generate_random_chars(20, 12400, 12500)
+print(random_japanese_chars)
 
 
 print('========Zip function:=======')
@@ -110,8 +112,8 @@ for elem in zipped_people:
         "score": elem[2]
     })
 
-pprint(people, sort_dicts=False)
-sorted_list = sorted(people, key = lambda a: a["score"], reverse = True)
+pprint(people, sort_dicts = False)
+sorted_list = sorted(people, key = lambda a: a["score"], reverse=True)
 
 print(sorted_list)
 
