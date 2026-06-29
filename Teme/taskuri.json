@@ -1,0 +1,26 @@
+[
+    {
+        "nume": "rezolvare tema",
+        "data": "01.Iulie",
+        "persoana": "Daniela",
+        "categorie": "curs"
+    },
+    {
+        "nume": "rezolvare tema 2",
+        "data": "15.Iulie",
+        "persoana": "Ioana",
+        "categorie": "curs"
+    },
+    {
+        "nume": "cumparaturi alimente",
+        "data": "01.Iulie",
+        "persoana": "Alex",
+        "categorie": "cumparaturi"
+    },
+    {
+        "nume": "cumparaturi imbracaminte",
+        "data": "02.Iulie",
+        "persoana": "Adrian",
+        "categorie": "cumparaturi"
+    }
+]
